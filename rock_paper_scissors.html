@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        function getComputerChoice(){
+            const gameOptions = ['rock', 'paper', 'scissors'];
+
+            computerChoice = gameOptions[Math.floor(Math.random() * 3)];
+        }
+
+        function singleRound(playerSelection, computerSelection){
+            let playerSelection = prompt("Do you want to play rock, paper, or scissors?");
+            let computerSelection = computerChoice;
+            // draw scenario
+            if(playerSelection == computerSelection);
+                return "That's a draw!"
+            // win scenarios
+            if(playerSelection == "rock"  && computerSelection == "scissors");
+                return "You win! Rock beats Scissors."
+                playerScore++;
+            if(playerSelection == "paper"  && computerSelection == "rock");
+                return "You win! Paper beats Rock."
+                playerScore++;
+            if(playerSelection == "scissors"  && computerSelection == "paper");
+                return "You win! Scissors beats Paper."
+                playerScore++;
+            // lose scenarios
+            if(playerSelection == "rock"  && computerSelection == "paper");
+                return "You lose! Paper beats Rock."
+                computerScore++;
+            if(playerSelection == "paper"  && computerSelection == "scissors");
+                return "You lose! Scissors beats Paper."
+                computerScore++;
+            if(playerSelection == "scissors"  && computerSelection == "rock");
+                return "You lose! Rock beats Scissors."
+                computerScore++;
+        }
+    </script>
+</body>
+</html>
