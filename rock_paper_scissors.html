@@ -7,43 +7,71 @@
     <title>Document</title>
 </head>
 <body>
+
+
+
+<script>
+
+const gameOptions = ["rock", "paper", "scissors"];
+let computerSelection;
+let playerSelection;
+let computerScore = 0;
+let playerScore = 0;
+
+function getComputerChoice(){
+  return gameOptions[Math.floor(Math.random() * 3)];
+}
+ 
+function capitalizeFirstLetter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+ 
+function singleRound(playerSelection, computerSelection){
+ 
+  if(playerSelection == computerSelection){
+    return "tie";
+  } else if ((playerSelection == "rock" && computerSelection == "scissors") ||
+  (playerSelection == "paper" && computerSelection == "rock") ||
+  (playerSelection == "scissors" && computerSelection == "paper")){
+    return "win";
+  } else {
+    return "lose";
+  }
+}
+ 
+for (let i = 0; i < 5; i++) {
+ let playerSelection = prompt("Do you want to play rock, paper, or scissors").toLowerCase();
+ let computerSelection = getComputerChoice();
+
+  if (singleRound(playerSelection, computerSelection) === "tie"){
+      console.log(`It's a tie! You both picked ${playerSelection} Your score\
+ is ${playerScore}, the computer's score is ${computerScore}`);
+  }
+ 
+  else if (singleRound(playerSelection, computerSelection) == "win"){
+    playerScore++;
+     console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)}\
+ beats ${computerSelection}. Your score is ${playerScore}, the computer's\
+ score is ${computerScore}`);
+  }
+    else {
+      computerScore++;
+      console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)}\
+ beats ${playerSelection}. Your score is ${playerScore}, the computer's\
+ score is ${computerScore}`);
+}
     
-    <script>
+}
+if ((i=5)&&(playerScore>computerScore)){
+    console.log(`You won the game ${playerScore}-${computerScore}!`);
+} else if ((i=5)&&(playerScore<computerScore)){
+    console.log(`You lost the game ${computerScore}-${playerScore}!`);
+} else if (i=5){
+  console.log("The game ended in a tie.");
+}
 
+</script>
 
-        function getComputerChoice(){
-            const gameOptions = ['rock', 'paper', 'scissors'];
-
-            computerChoice = gameOptions[Math.floor(Math.random() * 3)];
-        }
-
-        function singleRound(playerSelection, computerSelection){
-            let playerSelection = prompt("Do you want to play rock, paper, or scissors?");
-            let computerSelection = computerChoice;
-            // draw scenario
-            if(playerSelection == computerSelection);
-                return "That's a draw!"
-            // win scenarios
-            if(playerSelection == "rock"  && computerSelection == "scissors");
-                return "You win! Rock beats Scissors."
-                playerScore++;
-            if(playerSelection == "paper"  && computerSelection == "rock");
-                return "You win! Paper beats Rock."
-                playerScore++;
-            if(playerSelection == "scissors"  && computerSelection == "paper");
-                return "You win! Scissors beats Paper."
-                playerScore++;
-            // lose scenarios
-            if(playerSelection == "rock"  && computerSelection == "paper");
-                return "You lose! Paper beats Rock."
-                computerScore++;
-            if(playerSelection == "paper"  && computerSelection == "scissors");
-                return "You lose! Scissors beats Paper."
-                computerScore++;
-            if(playerSelection == "scissors"  && computerSelection == "rock");
-                return "You lose! Rock beats Scissors."
-                computerScore++;
-        }
-    </script>
 </body>
 </html>
+
